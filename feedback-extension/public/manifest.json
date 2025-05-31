@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Slack Feedback Extension",
+  "version": "1.0",
+  "description": "Extensão para Slack com popup e página externa",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"],
+  "web_accessible_resources": [
+    {
+      "resources": ["webpage.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
