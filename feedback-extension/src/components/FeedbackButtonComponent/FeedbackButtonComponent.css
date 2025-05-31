@@ -2,7 +2,7 @@
   font-size: 14px;
   font-weight: bold;
   padding: 6px 16px;
-  border: 2px solid black;
+  border: 2px solid #4a154b;
   cursor: pointer;
   font-family: sans-serif;
   transition: background-color 0.2s, color 0.2s;
@@ -10,10 +10,10 @@
 
 .feedback-button.outline {
   background-color: white;
-  color: black;
+  color: #4a154b;
 }
 
 .feedback-button.filled {
-  background-color: black;
+  background-color: #4a154b;
   color: white;
 }
