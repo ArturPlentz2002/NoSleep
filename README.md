@@ -72,7 +72,7 @@ MIT
 
 contribuidores são:
 
-[@leticiadavinunes](https://github.com/leticiadavinunes)
-[@ArthurBlasi](https://github.com/ArthurBlasi)
-[@ArturPlentz2002](https://github.com/ArturPlentz2002)
+[@leticiadavinunes](https://github.com/leticiadavinunes)  
+[@ArthurBlasi](https://github.com/ArthurBlasi)  
+[@ArturPlentz2002](https://github.com/ArturPlentz2002)  
 [@trein-luis](https://github.com/trein-luis)
