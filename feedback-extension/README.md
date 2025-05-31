@@ -21,7 +21,7 @@
   <a href="#licença">License</a>
 </p>
 
-![screenshot](https://github.com/ArturPlentz2002/NoSleep)
+![screenshot](feedback-extension\public\Print.png)
 
 ## Key Features
 
