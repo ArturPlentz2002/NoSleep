@@ -1,79 +1,71 @@
-<h1 align="center">
-  <br>
-  Front-End do Projeto do Nosleep
-  <br>
-</h1>
+<h1 align="center"> <br> Front-End do Projeto NoSleep <br> </h1> <h4 align="center">Este repositório contém o código da interface front-end da extensão do time NoSleep</h4> <p align="center"> <a href="https://badge.fury.io/js/electron-markdownify"> <img src="https://badge.fury.io/js/electron-markdownify.svg" alt="Badge"> </a> </p> <p align="center"> <a href="#key-features">Principais Funções</a> • <a href="#how-to-use">Como Usar</a> • <a href="#download">Download</a> • <a href="#credits">Créditos</a> </p>
 
-<h4 align="center">Este repositório contém o código da interface front-end da extensão do time NoSleep</h4>
 
-<p align="center">
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-</p>
+🔑 Key Features
+📊 Ranking Geral dos colaboradores mais reconhecidos (considerando feedbacks positivos e negativos)
 
-<p align="center">
-  <a href="#key-features">Principais Funções</a> •
-  <a href="#how-to-use">Como usar</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Créditos</a> •
-  <a href="#licença">License</a>
-</p>
+✉️ Ranking dos Colaboradores que mais enviaram feedbacks
 
-![screenshot](https://github.com/ArturPlentz2002/NoSleep)
+🥇 Destaque visual para os três primeiros colocados de cada ranking
 
-## Key Features
+📱 Interface responsiva e amigável
 
-- Ranking Geral dos Colaboradores mais reconhecidos (considerando feedbacks positivos e negativos)
-- Ranking dos Colaboradores que mais enviaram feedbacks
-- Destaque visual para os três primeiros colocados de cada ranking
-- Interface responsiva e amigável
-- Visualização clara dos pontos positivos e negativos de cada usuário
-- Componentização com React para fácil manutenção e expansão
-- Fácil integração com outros sistemas ou APIs
+👀 Visualização clara dos pontos positivos e negativos de cada usuário
 
-## How To Use
+⚙️ Componentização com React para fácil manutenção e expansão
 
-Para clonar e rodar esta aplicação, você precisará do [Git](https://git-scm.com) e do [Node.js](https://nodejs.org/en/download/) (que já vem com o [npm](http://npmjs.com)) instalados no seu computador. No seu terminal, execute:
+🔌 Integração simples com outros sistemas ou APIs
 
-```bash
-# Clone this repository
+🚀 How To Use
+Para clonar e rodar esta aplicação, você precisará do Git e do Node.js (que já vem com o npm) instalados na sua máquina. No seu terminal, execute:
+
+bash
+Copiar
+Editar
+# Clone este repositório
 $ git clone https://github.com/ArturPlentz2002/NoSleep.git
 
-# Go into the repository
-$ cd .feedback-extension
+# Acesse a pasta do projeto
+$ cd feedback-extension
 
-# Install dependencies
-$ npm i
+# Instale as dependências
+$ npm install
 
-
+# Rode a aplicação localmente
 $ npm run dev
-```
+📦 Download
+Você pode instalar a extensão manualmente no Chrome seguindo os passos abaixo:
 
-## Download
+Vá em chrome://extensions
 
-Voce pode [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) a verção mais recente para Google Chrome.
+Ative o Modo de desenvolvedor (canto superior direito)
 
-## Credits
+Clique em "Carregar sem compactação"
 
+Selecione a pasta feedback-extension/ após o build
+
+Em breve, disponibilizaremos a versão empacotada oficial para instalação direta.
+
+🙌 Credits
 Este software utiliza os seguintes pacotes open source:
 
-- [React](https://react.dev/) — Biblioteca principal para construção da interface
-- [Vite](https://vitejs.dev/) — Empacotador e servidor de desenvolvimento rápido
-- [TypeScript](https://www.typescriptlang.org/) — Superset de JavaScript para tipagem estática
-- [Axios](https://axios-http.com/) — Cliente HTTP para integração com APIs
+React — Biblioteca principal da interface
 
-## License
+Vite — Bundler e servidor de desenvolvimento rápido
 
-MIT
+TypeScript — Superset de JavaScript com tipagem estática
 
----
+Axios — Cliente HTTP para comunicação com backend
 
-contribuidores são:
+react-mentions — Suporte a @menções estilo Slack
 
-[@leticiadavinunes](https://github.com/leticiadavinunes)  
-[@ArthurBlasi](https://github.com/ArthurBlasi)  
-[@ArturPlentz2002](https://github.com/ArturPlentz2002)  
-[@trein-luis](https://github.com/trein-luis)
-[@JoaoKS1][https://github.com/JoaoKS1]
+👥 Contribuidores
+@leticiadavinunes — UI/UX, testes e QA
+
+@ArthurBlasi — Front-end e integração com Slack
+
+@ArturPlentz2002 — Backend e API
+
+@trein-luis — Integração, lógica e estrutura
+
+@JoaoKS1 — Design e feedbacks
