@@ -1,0 +1,16 @@
+.navigate-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.navigate-button:hover {
+  opacity: 0.9;
+}
