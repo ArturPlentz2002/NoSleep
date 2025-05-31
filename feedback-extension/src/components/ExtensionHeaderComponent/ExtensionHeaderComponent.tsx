@@ -3,12 +3,12 @@ import "./ExtensionHeaderComponent.css";
 
 const ExtensionHeaderComponent: React.FC = () => {
   const handleClose = () => {
-    window.close(); // <- isso fecha a janela do popup
+    window.close();
   };
 
   return (
     <div className="extension-header">
-      <span className="logo-text">LOGO DO BAG</span>
+      <span className="logo-text">FeedbackExtension</span>
       <button className="close-button" onClick={handleClose}>
         X
       </button>
