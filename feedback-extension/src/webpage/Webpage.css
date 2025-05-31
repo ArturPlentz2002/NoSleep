@@ -5,10 +5,10 @@ body {
 }
 
 .container {
-  padding: 2rem;
   font-family: Arial, sans-serif;
   background-color: #761078;
   min-height: 100vh;
+  padding: 2rem; /* diminui o espaçamento */
 }
 
 .header {
@@ -20,37 +20,51 @@ body {
   background: #7b93cf;
   border: 1px solid #273d8f;
   border-radius: 10px;
-  padding: 2rem 1rem;
+  padding: 1.2rem 0.8rem; /* diminui o padding */
   box-shadow: 0 2px 8px rgba(244, 242, 242, 0.03);
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   color: #ffffff;
+  max-width: 100%;
+  min-height: 100px;
+  height: 100px; /* altura fixa menor */
+  word-break: break-word;
+  box-sizing: border-box;
 }
 
 .title {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem; /* diminui o tamanho do título */
+  margin-bottom: 0.7rem;
+  max-width: 95%;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .subtitle {
   color: #ffffff;
-  margin-bottom: 2rem;
+  font-size: 1rem; /* diminui o subtítulo */
+  margin-bottom: 1.2rem;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 3.5rem;
+  gap: 1.2rem; /* diminui o espaço entre cards */
+  margin-top: 2rem;
 }
 
 .card {
   background-color: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
+  padding: 1.2rem 1.5rem; /* diminui o tamanho dos cards */
+  border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1rem; /* diminui o texto dos cards */
+  max-width: 100%;
+  word-break: break-word; /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Quebra palavras longas */
+  box-sizing: border-box;
 }
 
 .card-pink {
@@ -65,23 +79,37 @@ body {
 
 .position {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #000000;
-  width: 50px;
+  width: 36px;
 }
 
 .user {
   flex: 1;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .count {
   color: #d2198e;
   font-weight: bold;
+  font-size: 0.95rem;
 }
 
 .fire {
-  margin-left: 8px;
+  margin-left: 6px;
   font-size: 1.2rem;
+}
+
+.dual-ranking {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ranking-block {
+  flex: 1 1 250px;
+  min-width: 240px;
+  max-width: 380px; /* aumente se necessário */
 }
