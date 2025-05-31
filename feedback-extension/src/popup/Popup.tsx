@@ -1,8 +1,14 @@
-export default function Popup() {
+import React from "react";
+import ExtensionHeaderComponent from "../components/ExtensionHeaderComponent/ExtensionHeaderComponent";
+
+const Popup = () => {
   return (
-    <div style={{ padding: '1rem' }}>
-      <h2>Popup</h2>
-      <p>Envie seu feedback aqui!</p>
+    <div className="extension"
+         style={{ width: "300px", height: "500px", backgroundColor: "white", padding: "2%"}}>
+      <ExtensionHeaderComponent />
+      {/* restante do conteúdo */}
     </div>
-  )
-}
+  );
+};
+
+export default Popup;

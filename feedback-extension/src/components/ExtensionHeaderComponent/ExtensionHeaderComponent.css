@@ -1,0 +1,23 @@
+.extension-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 8px 12px; */
+  /* border-bottom: 1px solid black; */
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.logo-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0% 4%;
+  font-weight: bold;
+}
