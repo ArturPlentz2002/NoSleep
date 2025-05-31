@@ -28,7 +28,7 @@ const Popup = () => {
   };
 
   const handleIncreaseView = () => {
-     chrome.tabs.create({ url: chrome.runtime.getURL("webview.html") });
+     chrome.tabs.create({ url: chrome.runtime.getURL("webpage.html") });
   };
 
   return (
