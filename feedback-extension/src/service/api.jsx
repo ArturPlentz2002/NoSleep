@@ -1,10 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://seu-backend.com", 
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: "http://localhost:3000", // ou a URL real da API
 });
+
+export const getUsers = async () => {
+  const response = await api.get("/users");
+  return response.data;
+};
 
 export default api;
