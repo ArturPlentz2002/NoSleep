@@ -32,8 +32,8 @@ const FeedbackComponent: React.FC = () => {
       />
 
       <div className="feedback-buttons">
-        <FeedbackButtonComponent label="LIMPAR" filled={false} onClick={handleClear} />
-        <FeedbackButtonComponent label="ENVIAR" filled={true} onClick={handleSend} />
+        <FeedbackButtonComponent label="ENVIAR" filled={true} onClick={handleSend}/>
+        <FeedbackButtonComponent label="LIMPAR" filled={false} onClick={handleClear}/>
       </div>
     </div>
   );
