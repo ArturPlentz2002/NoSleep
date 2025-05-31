@@ -3,12 +3,13 @@
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
-  background-color: black;
+  background-color: #4a154b;
   color: white;
   border: none;
   cursor: pointer;
   font-family: sans-serif;
   transition: background-color 0.2s, opacity 0.2s;
+  margin-top: 5%;
 }
 
 .navigate-button:hover {
