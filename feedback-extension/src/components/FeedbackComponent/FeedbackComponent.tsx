@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./FeedbackComponent.css";
 import FeedbackButtonComponent from "../FeedbackButtonComponent/FeedbackButtonComponent";
 import { MentionsInput, Mention } from "react-mentions";
-import { getUsers } from "../../service/api";
 
 interface User {
   id: string;
   name: string;
+  received: number; // novo campo
 }
 
 const FeedbackComponent: React.FC = () => {
@@ -14,59 +14,43 @@ const FeedbackComponent: React.FC = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
 
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const data = await getUsers();
-  //       setUsers(data);
-  //     } catch (err) {
-  //       console.error("Erro ao buscar usuários:", err);
-  //     }
-  //   };
-
-  //   fetchUsers();
-  // }, []);
-
   useEffect(() => {
-  // Mock de usuários direto no front
-  const mockUsers = [
-    { id: "1", name: "arthurblasi" },
-    { id: "2", name: "Luís Trein" },
-    { id: "3", name: "Artur Plentz" },
-    { id: "4", name: "Letícia Nunes" },
-    { id: "5", name: "Joao Vitor"},
-    { id: "6", name: "Thiago Cardoso"}
-  ];
-
-  setUsers(mockUsers);
+    const mockUsers: User[] = [
+      { id: "1", name: "arthurblasi", received: 0 },
+      { id: "2", name: "Luís Trein", received: 0 },
+      { id: "3", name: "Artur Plentz", received: 0 },
+      { id: "4", name: "Letícia Nunes", received: 0 },
+      { id: "5", name: "Joao Vitor", received: 0 },
+      { id: "6", name: "Thiago Cardoso", received: 0 }
+    ];
+    setUsers(mockUsers);
+    localStorage.setItem("users", JSON.stringify(mockUsers)); // inicializa no localStorage
   }, []);
 
-  const handleClear = () => {
-    setMessage("");
-  };
+  const handleClear = () => setMessage("");
 
   const handleSendClick = () => {
     if (!message.trim()) {
       alert("Digite algo antes de enviar.");
       return;
     }
-
     setShowConfirmation(true);
   };
 
   const sendFeedback = (isAnonymous: boolean) => {
     const mentionedIds = [...message.matchAll(/\@\[.*?\]\((.*?)\)/g)].map(m => m[1]);
 
-    const payload = {
-      message,
-      anonymous: isAnonymous,
-      fromUser: isAnonymous ? null : "usuarioFake",
-      toUserIds: mentionedIds,
-    };
+    const updatedUsers = users.map(user => {
+      if (mentionedIds.includes(user.id)) {
+        return { ...user, received: user.received + 1 };
+      }
+      return user;
+    });
 
-    console.log("Enviando feedback:", payload);
+    setUsers(updatedUsers);
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+
     alert("Feedback enviado com sucesso!");
-
     setMessage("");
     setShowConfirmation(false);
   };
