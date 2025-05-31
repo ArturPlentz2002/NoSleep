@@ -45,10 +45,10 @@ $ git clone https://github.com/ArturPlentz2002/NoSleep.git
 $ cd .feedback-extension
 
 # Install dependencies
-$ npm install
+$ npm i
 
-# Run the app
-$ npm start
+
+$ npm run dev
 ```
 
 ## Download
@@ -76,3 +76,4 @@ contribuidores são:
 [@ArthurBlasi](https://github.com/ArthurBlasi)  
 [@ArturPlentz2002](https://github.com/ArturPlentz2002)  
 [@trein-luis](https://github.com/trein-luis)
+[@JoaoKS1][https://github.com/JoaoKS1]
