@@ -33,3 +33,15 @@
   flex-direction: row-reverse;
   gap: 10px;
 }
+
+.feedback-confirmation {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmation-question {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #1d1c1d;
+}

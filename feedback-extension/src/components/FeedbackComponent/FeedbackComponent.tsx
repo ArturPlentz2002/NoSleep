@@ -4,20 +4,37 @@ import FeedbackButtonComponent from "../FeedbackButtonComponent/FeedbackButtonCo
 
 const FeedbackComponent: React.FC = () => {
   const [message, setMessage] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleClear = () => {
     setMessage("");
   };
 
-  const handleSend = () => {
+  const handleSendClick = () => {
     if (!message.trim()) {
       alert("Digite algo antes de enviar.");
       return;
     }
 
-    console.log("Feedback enviado:", message);
+    setShowConfirmation(true);
+  };
+
+  const sendFeedback = (isAnonymous: boolean) => {
+    const payload = {
+      message,
+      anonymous: isAnonymous,
+      fromUser: isAnonymous ? null : "usuarioFake", // ajuste isso se tiver auth real
+      toUser: "destinatarioFake", // substitua pela lógica real
+    };
+
+    console.log("Enviando feedback:", payload);
+
+    // Aqui vai a chamada real da API
+    // await api.post("/feedback", payload);
+
     alert("Feedback enviado com sucesso!");
     setMessage("");
+    setShowConfirmation(false);
   };
 
   return (
@@ -31,10 +48,21 @@ const FeedbackComponent: React.FC = () => {
         onChange={(e) => setMessage(e.target.value)}
       />
 
-      <div className="feedback-buttons">
-        <FeedbackButtonComponent label="ENVIAR" filled={true} onClick={handleSend}/>
-        <FeedbackButtonComponent label="LIMPAR" filled={false} onClick={handleClear}/>
-      </div>
+      {!showConfirmation ? (
+        <div className="feedback-buttons">
+          <FeedbackButtonComponent label="LIMPAR" filled={false} onClick={handleClear} />
+          <FeedbackButtonComponent label="ENVIAR" filled={true} onClick={handleSendClick}/>
+        </div>
+      ) : (
+        <div className="feedback-confirmation">
+          <span className="confirmation-question">Deseja enviar feedback de maneira anônima?</span>
+          <div className="feedback-buttons">
+            <FeedbackButtonComponent label="CANCELAR" filled={false} onClick={() => setShowConfirmation(false)}/>
+            <FeedbackButtonComponent label="NÃO" filled={false} onClick={() => sendFeedback(false)}/>        
+            <FeedbackButtonComponent label="SIM" filled={true} onClick={() => sendFeedback(true)}/>  
+          </div>
+        </div>
+      )}
     </div>
   );
 };

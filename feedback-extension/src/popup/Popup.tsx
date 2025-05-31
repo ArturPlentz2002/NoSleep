@@ -15,7 +15,7 @@ const Popup = () => {
 
   return (
     <div className="extension"
-         style={{ width: "300px", height: "460px", backgroundColor: "white", padding: 0, margin: 0}}>
+         style={{ width: "300px", height: "480px", backgroundColor: "white", padding: 0, margin: 0}}>
       <ExtensionHeaderComponent />
       <UsernameComponent
         name="Arthur Blasi"
