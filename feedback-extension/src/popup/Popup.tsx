@@ -8,7 +8,6 @@ import FeedbackButtonComponent from "../components/FeedbackButtonComponent/Feedb
 import NavigateButton from "../components/NavigateButton/NavigateButton";
 
 const Popup = () => {
-
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
@@ -28,24 +27,40 @@ const Popup = () => {
   };
 
   const handleIncreaseView = () => {
-     chrome.tabs.create({ url: chrome.runtime.getURL("webpage.html") });
+    chrome.tabs.create({ url: chrome.runtime.getURL("webpage.html") });
   };
 
   return (
-    <div className="extension"
-         style={{ width: "300px", height: "500px", backgroundColor: "white", padding: "2%"}}>
+    <div
+      className="extension"
+      style={{
+        width: "300px",
+        height: "500px",
+        backgroundColor: "white",
+        padding: "2%",
+      }}
+    >
       <ExtensionHeaderComponent />
       <UsernameComponent
         name="Arthur Blasi"
         avatarUrl="https://example.com/avatar.jpg"
       />
-      <div style={{gap: "50px"}}>
-        <FeedbackButtonComponent label="LIMPAR" filled={false} onClick={handleClear} />
-        <FeedbackButtonComponent label="ENVIAR" filled={true} onClick={handleSend} />
+      <div style={{ gap: "50px" }}>
+        <FeedbackButtonComponent
+          label="LIMPAR"
+          filled={false}
+          onClick={handleClear}
+        />
+        <FeedbackButtonComponent
+          label="ENVIAR"
+          filled={true}
+          onClick={handleSend}
+        />
       </div>
       {/* restante do conteúdo */}
-      <NavigateButton label="AUMENTAR VISUALIZAÇÃO"
-      onClick={handleIncreaseView} 
+      <NavigateButton
+        label="AUMENTAR VISUALIZAÇÃO"
+        onClick={handleIncreaseView}
       />
     </div>
   );
