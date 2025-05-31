@@ -1,30 +1,37 @@
 import React, { useEffect, useState } from "react";
 import "./FeedbackComponent.css";
 import FeedbackButtonComponent from "../FeedbackButtonComponent/FeedbackButtonComponent";
+import { FeedbackService } from "../../service/feedbackService";
 import { MentionsInput, Mention } from "react-mentions";
 
 interface User {
   id: string;
   name: string;
-  received: number; // novo campo
+  received: number;
 }
 
 const FeedbackComponent: React.FC = () => {
   const [message, setMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
+  const [channel] = useState("C05ABCDEFG"); // Substitua com o ID real do canal do Slack
 
   useEffect(() => {
-    const mockUsers: User[] = [
-      { id: "1", name: "arthurblasi", received: 0 },
-      { id: "2", name: "Luís Trein", received: 0 },
-      { id: "3", name: "Artur Plentz", received: 0 },
-      { id: "4", name: "Letícia Nunes", received: 0 },
-      { id: "5", name: "Joao Vitor", received: 0 },
-      { id: "6", name: "Thiago Cardoso", received: 0 }
-    ];
-    setUsers(mockUsers);
-    localStorage.setItem("users", JSON.stringify(mockUsers)); // inicializa no localStorage
+    const stored = localStorage.getItem("users");
+    if (stored) {
+      setUsers(JSON.parse(stored));
+    } else {
+      const mockUsers: User[] = [
+        { id: "1", name: "arthurblasi", received: 0 },
+        { id: "2", name: "Luís Trein", received: 0 },
+        { id: "3", name: "Artur Plentz", received: 0 },
+        { id: "4", name: "Letícia Nunes", received: 0 },
+        { id: "5", name: "Joao Vitor", received: 0 },
+        { id: "6", name: "Thiago Cardoso", received: 0 }
+      ];
+      setUsers(mockUsers);
+      localStorage.setItem("users", JSON.stringify(mockUsers));
+    }
   }, []);
 
   const handleClear = () => setMessage("");
@@ -37,9 +44,10 @@ const FeedbackComponent: React.FC = () => {
     setShowConfirmation(true);
   };
 
-  const sendFeedback = (isAnonymous: boolean) => {
+  const sendFeedback = async (isAnonymous: boolean) => {
     const mentionedIds = [...message.matchAll(/\@\[.*?\]\((.*?)\)/g)].map(m => m[1]);
 
+    // Atualiza os contadores dos mencionados
     const updatedUsers = users.map(user => {
       if (mentionedIds.includes(user.id)) {
         return { ...user, received: user.received + 1 };
@@ -50,9 +58,24 @@ const FeedbackComponent: React.FC = () => {
     setUsers(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-    alert("Feedback enviado com sucesso!");
-    setMessage("");
-    setShowConfirmation(false);
+    const payload = {
+      text: message,
+      tags: ["geral"],
+      anon: isAnonymous,
+      channel: channel,
+      fromUser: isAnonymous ? null : "usuarioFake",
+      toUser: mentionedIds.join(",") || "destinatarioFake", // para o backend, ainda que simbólico
+    };
+
+    try {
+      await FeedbackService.sendFeedback(payload);
+      alert("✅ Feedback enviado com sucesso!");
+      setMessage("");
+      setShowConfirmation(false);
+    } catch (error: any) {
+      alert("❌ Erro ao enviar: " + error.message);
+      console.error("Erro:", error);
+    }
   };
 
   return (
