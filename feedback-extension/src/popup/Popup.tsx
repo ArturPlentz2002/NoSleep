@@ -9,9 +9,8 @@ import LeadersComponent from "../components/LeadersComponent/LeadersComponent";
 import NavigateButton from "../components/NavigateButton/NavigateButton";
 
 const Popup = () => {
-
   const handleIncreaseView = () => {
-     chrome.tabs.create({ url: chrome.runtime.getURL("webview.html") });
+    chrome.tabs.create({ url: chrome.runtime.getURL("webpage.html") });
   };
 
   return (
@@ -22,6 +21,7 @@ const Popup = () => {
         name="Arthur Blasi"
         avatarUrl="https://example.com/avatar.jpg"
       />
+
       <FeedbackComponent/>
       <LeadersComponent
         label="MELHOR AVALIADO"
