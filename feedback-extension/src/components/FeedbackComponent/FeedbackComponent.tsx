@@ -45,11 +45,11 @@ const FeedbackComponent: React.FC = () => {
   };
 
   const sendFeedback = async (isAnonymous: boolean) => {
-    const mentionedIds = [...message.matchAll(/\@\[.*?\]\((.*?)\)/g)].map(m => m[1]);
+    // Extrair nomes mencionados no formato @nome
+    const mentionedNames = [...message.matchAll(/@(\w+)/g)].map(m => m[1]);
 
-    // Atualiza os contadores dos mencionados
     const updatedUsers = users.map(user => {
-      if (mentionedIds.includes(user.id)) {
+      if (mentionedNames.includes(user.name)) {
         return { ...user, received: user.received + 1 };
       }
       return user;
@@ -64,7 +64,7 @@ const FeedbackComponent: React.FC = () => {
       anon: isAnonymous,
       channel: channel,
       fromUser: isAnonymous ? null : "usuarioFake",
-      toUser: mentionedIds.join(",") || "destinatarioFake", // para o backend, ainda que simbólico
+      toUser: mentionedNames.join(",") || "destinatarioFake"
     };
 
     try {
@@ -90,8 +90,8 @@ const FeedbackComponent: React.FC = () => {
       >
         <Mention
           trigger="@"
-          data={users.map(u => ({ id: u.id, display: u.name }))}
-          markup="@[$__display__]($__id__)"
+          data={users.map(u => ({ id: u.name, display: u.name }))}
+          markup="@__display__"
           displayTransform={(id, display) => `@${display}`}
         />
       </MentionsInput>
